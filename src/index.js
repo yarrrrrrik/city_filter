@@ -9,8 +9,26 @@ import './reset.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {loadState, saveState} from './localStorage'
+
+const preloadedState = loadState();
 
 const store = createStore(rootReducer,compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+
+
+
+// const store = createStore(
+//   app,
+//   persistedState
+// );
+store.subscribe(() => {
+  // console.log(store.getState());
+  console.log(preloadedState);
+  saveState(
+    {
+    state: store.getState()
+  });
+});
 
 
 ReactDOM.render(

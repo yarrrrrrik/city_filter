@@ -7,7 +7,7 @@ export const getCityListAction = (query) => {
     let citiesResponse = await citiesRequest.json()
     let cityList = citiesResponse.data.map((item) => (item.city))
     console.log(cityList);
-    dispatch({type:GET_CITY_LIST,cityList})
+    dispatch({type:GET_CITY_LIST,cityList,query})
   }
 }
 

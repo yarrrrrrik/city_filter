@@ -1,13 +1,18 @@
-import React from 'react'
-import {useSelector,useDispatch} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useSelector, useDispatch, useStore} from 'react-redux'
 
-import {getCityListAction,removeCityListAction} from '../redux/filter-form/filter_form_actions'
+import {getCityListAction, removeCityListAction} from '../redux/filter-form/filter_form_actions'
 import {selectCityAction} from '../redux/selected-cities/selected_cities_actions'
 
 function FilterForm() {
-
+  const store = useStore()
   const dispatch = useDispatch()
   const selectCityList = useSelector(state => state.filterForm.cityList)
+  // const selectQuery = useSelector(state => state.filterForm.query)
+  // useEffect(() => {
+  //   document.querySelector('.searchInput').value = selectQuery
+  //   // console.log(document.querySelector());
+  // });
   let inputValue = ''
   function get(e) {
     inputValue = e.target.value
