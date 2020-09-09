@@ -23,7 +23,6 @@ function FilterForm() {
     }
   }
 
-
   return (
     <div className="filter-form" >
       <form action="">

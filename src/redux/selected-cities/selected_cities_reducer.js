@@ -7,7 +7,7 @@ const initial_state = {
 
 export const selectedCitiesReducer = (state = initial_state, action) => {
   if (state === initial_state){
-    state = loadState().state.selectedCities
+    loadState() ? state = loadState().state.selectedCities : state = initial_state
   }
   switch (action.type) {
     case SELECT_CITY:

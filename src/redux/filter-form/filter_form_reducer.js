@@ -8,7 +8,7 @@ const initial_state = {
 
 export const filterFormReducer = (state = initial_state, action) => {
   if (state === initial_state){
-    state = loadState().state.filterForm
+    loadState() ? state = loadState().state.filterForm : state = initial_state // без проверки при пустом localStorage не работает
   }
   switch (action.type){
     case GET_CITY_LIST:
