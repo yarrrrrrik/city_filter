@@ -6,11 +6,8 @@ export const getCityListAction = (query) => {
     let citiesRequest = await fetch(api_url)
     let citiesResponse = await citiesRequest.json()
     let cityList = citiesResponse.data.map((item) => (item.city))
-    console.log(cityList);
     dispatch({type:GET_CITY_LIST,cityList,query})
   }
 }
 
 export const removeCityListAction = () => ({type:REMOVE_CITY_LIST})
-
-// const closeIssues = () => ({type:types.CLOSE_ISSUES})

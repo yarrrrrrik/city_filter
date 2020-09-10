@@ -13,8 +13,14 @@ export const selectedCitiesReducer = (state = initial_state, action) => {
     case SELECT_CITY:
       return {...state, selectedCitiesArray:state.selectedCitiesArray.concat(action.selectedCity)}
     case REMOVE_CITY:
-      state.selectedCitiesArray.splice(action.key, 1)//почему селектор срабатывает только так?
-      return {...state, selectedCitiesArray:state.selectedCitiesArray.splice(action.key, 1)}
+      let newSelectedCitiesArray
+      if (state.selectedCitiesArray.length == 1) {
+        newSelectedCitiesArray = [];
+      }else {
+        newSelectedCitiesArray = state.selectedCitiesArray
+        newSelectedCitiesArray.splice(action.key, 1)
+      }
+      return {...state, selectedCitiesArray:[...newSelectedCitiesArray]}
     default:
       return {...state}
   }
