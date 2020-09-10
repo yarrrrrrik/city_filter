@@ -14,7 +14,7 @@ export const selectedCitiesReducer = (state = initial_state, action) => {
       return {...state, selectedCitiesArray:state.selectedCitiesArray.concat(action.selectedCity)}
     case REMOVE_CITY:
       let newSelectedCitiesArray
-      if (state.selectedCitiesArray.length == 1) {
+      if (state.selectedCitiesArray.length === 1) {
         newSelectedCitiesArray = [];
       }else {
         newSelectedCitiesArray = state.selectedCitiesArray

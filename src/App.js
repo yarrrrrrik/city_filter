@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import FilterForm from './components/filter_form'
 import SelectedCities from './components/selected_cities'
 
@@ -7,8 +7,10 @@ import SelectedCities from './components/selected_cities'
 function App() {
   return (
     <div className="App">
-      <FilterForm/>
-      <SelectedCities/>
+      <div className="container">
+        <FilterForm/>
+        <SelectedCities/>
+      </div>
     </div>
   );
 }

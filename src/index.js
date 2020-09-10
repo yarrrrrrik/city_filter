@@ -9,17 +9,15 @@ import './reset.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {loadState, saveState} from './localStorage'
+import {saveState} from './localStorage'
 
-const preloadedState = loadState();
 
 const store = createStore(rootReducer,compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 
 store.subscribe(() => {
   saveState(
-    {
-    state: store.getState()
-  });
+    {state: store.getState()}
+  )
 });
 
 

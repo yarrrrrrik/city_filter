@@ -1,4 +1,4 @@
-import {GET_CITY_LIST,REMOVE_CITY_LIST} from './filter_form_types'
+import {GET_CITY_LIST, REMOVE_CITY_LIST} from './filter_form_types'
 
 export const getCityListAction = (query) => {
   return async function getCityListRequest(dispatch){
@@ -6,7 +6,7 @@ export const getCityListAction = (query) => {
     let citiesRequest = await fetch(api_url)
     let citiesResponse = await citiesRequest.json()
     let cityList = citiesResponse.data.map((item) => (item.city))
-    dispatch({type:GET_CITY_LIST,cityList,query})
+    dispatch({type:GET_CITY_LIST,cityList})
   }
 }
 

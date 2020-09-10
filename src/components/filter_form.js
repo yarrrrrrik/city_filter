@@ -8,12 +8,9 @@ function FilterForm() {
   const store = useStore()
   const dispatch = useDispatch()
   const selectCityList = useSelector(state => state.filterForm.cityList)
-  // const selectQuery = useSelector(state => state.filterForm.query)
-  // useEffect(() => {
-  //   document.querySelector('.searchInput').value = selectQuery
-  //   // console.log(document.querySelector());
-  // });
+
   let inputValue = ''
+  
   function get(e) {
     inputValue = e.target.value
     if (inputValue.length > 2) {
@@ -25,13 +22,14 @@ function FilterForm() {
 
   return (
     <div className="filter-form" >
+      <h2 className="filter-form__title title">Find city </h2>
       <form action="">
-        <input type="text" className="searchInput" onChange={get}/>
+        <input type="text" className="searchInput" placeholder="City name" onChange={get}/>
       </form>
-      <ul>
+      <ul className="filter-form__list">
         {
           selectCityList.map((city, i) => {
-            return <li key={i}>{city} <button onClick={() => {
+            return <li className="list-item" key={i}> {city} <button className="btn add-btn"  onClick={() => {
                 dispatch(selectCityAction(city))
                 dispatch(removeCityListAction())
                 document.querySelector('.searchInput').value = ''
